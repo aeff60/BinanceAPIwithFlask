@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title> Home </title>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css') }}" >
+</head>
+<body>
+<div class="header">
+    <h1>ยอดเงินของฉัน</h1>
+</div>
+
+<div class="content">
+
+    <form action="/action_page.php">
+        
+        <select name="coin" id="coin">
+          <option value="DOGE">DOGE</option>
+          <option value="USDT">USDT</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+        <label for="fname">:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <br><br>
+        <label for="fname">Coin 2 = </label>
+        <br><br>
+        <input type="submit" value="+">
+      </form>
+</div>
+</body>
+</html>
