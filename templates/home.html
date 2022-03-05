@@ -13,11 +13,12 @@
 
 <div class="content">
 
-    <form action="/action_page.php">
+    <form action="/home.html">
         
         <select name="coin" id="coin">
-          <option value="DOGE">DOGE</option>
-          <option value="USDT">USDT</option>
+          {% for item in data %}
+          <option value="USDT">{{item.symbol}}</option>
+          {% endfor %}
         </select>
         <label for="fname">:</label>
         <input type="text" id="fname" name="fname"><br><br>
