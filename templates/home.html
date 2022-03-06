@@ -13,19 +13,20 @@
 
 <div class="content">
 
-    <form action="/home.html">
-        
+  <form method = "post" action = "http://localhost:5000/">  
+       
         <select name="coin" id="coin">
           {% for item in data %}
-          <option value="USDT">{{item.symbol}}</option>
+          <option name="cryto"> {{item.symbol}} </option>
           {% endfor %}
         </select>
         <label for="fname">:</label>
-        <input type="text" id="fname" name="fname"><br><br>
+        <input type="text" id="balance" name="balance"><br><br>
         <br><br>
-        <label for="fname">Coin 2 = </label>
+        <label>{{ result }} : {{ result2 }}</label> 
+
         <br><br>
-        <input type="submit" value="+">
+        <input type="Submit" value="Summit">
       </form>
 </div>
 </body>
