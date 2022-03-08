@@ -8,7 +8,12 @@
 </head>
 <body>
 <div class="header">
-    <h1>ยอดเงินของฉัน</h1>
+    <h1> ยอดเงินของฉัน</h1>
+
+    {% if data_jsonsymbol != " " %}
+    <h2> {{ data_jsonsymbol }} USD</h2>
+   {% endif %}
+    
 </div>
 
 <div class="content">
@@ -17,18 +22,15 @@
        
         <select name="coin" id="coin">
           {% for item in data %}
-          <option name="symbol"> {{item.symbol}} </option>
+          <option name="symbol"> {{item}} </option>
           {% endfor %}
         </select>
         
-          &nbsp;<input type="text" id="balance" name="balance"> <input type="Submit" value="Summit">
+          &nbsp;<input type="text" id="balance" name="balance"> <input type="Submit" value="Summit" id="button">
           
         <br><br>
-        <label for="fname"> {{ coinsymbol }}  {{ valuebalance }}</label>
-        <br><br>
-        
-        
-        
+        <label for="fname"> ชื่อเหรียญ {{ coinsymbol }}  : คุณมีทั้งหมด {{ valuebalance }} เหรียญ : ราคาที่แปลงได้เท่ากับ {{ data_jsonsymbol }} USDT</label>
+        <br><br> 
       </form>
 </div>
 </body>
