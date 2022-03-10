@@ -29,7 +29,9 @@
           &nbsp;<input type="text" id="balance" name="balance"> <input type="Submit" value="Summit" id="button">
           
         <br><br>
-        <label for="fname"> ชื่อเหรียญ {{ coinsymbol }}  : คุณมีทั้งหมด {{ valuebalance }} เหรียญ : ราคาที่แปลงได้เท่ากับ {{ data_jsonsymbol }} USDT</label>
+        {% for item in mycoin%}
+        <li> <label for="fname"> ชื่อเหรียญ {{ item[0] }}  : คุณมีทั้งหมด {{ item[1] }} เหรียญ : ราคาที่แปลงได้เท่ากับ {{ item[2] }} USDT</label></li>
+        {% endfor %}
         <br><br> 
       </form>
 </div>
