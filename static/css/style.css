@@ -1,3 +1,5 @@
+
+/* เอฟ3 */
 /* Style the body */
 body {
     font-family: Arial;
@@ -16,4 +18,46 @@ body {
   {
       padding:20px;
       text-align: center;
+}
+#button {
+  background-color: #ffc000;
+  border: none;
+  color: white;
+  padding: 15px 33px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 12px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+select
+{
+
+  
+  background-color: #ffc000;
+  border: none;
+  color: white;
+  padding: 13px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 2px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+#balance
+{
+  width: 20%;
+  padding: 11px 30px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ffc000;
+  border-radius: 4px;
+  /* box-sizing: border-box; */
+}
+label{
+  font-size: 28px;
 }
