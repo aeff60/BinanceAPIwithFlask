@@ -1,5 +1,4 @@
 import os
-from app import app
 from flask import *  
 import json
 from urllib.request import urlopen
@@ -16,7 +15,7 @@ def home():
 
     response = urlopen(url)
 
-    data_json = json.loads(response.read()) #ข้อมูลที่เป็น dictionary จาก api
+    data_json = json.loads(response.read())
     data_list = []
     for i in range(len(data_json)):
         dataprice= data_json[i]['symbol']
@@ -39,16 +38,16 @@ def home():
     listCookie = []
     if request.method == "POST": 
         
-         selectValuecoin = request.form.get('coin') #ข้อมูลชื่อเหรียญจาก dropdown
-         selectValuecoinstr = str(selectValuecoin) #ข้อมูลชื่อเหรียญจาก dropdown แปลงเป็น string
+         selectValuecoin = request.form.get('coin') 
+         selectValuecoinstr = str(selectValuecoin) 
 
-        #  selectValuecoinstr.find("USDT")
+     
 
-         selectValuebalance = request.form.get('balance') #ข้อมูลจากจำนวนเหรียญที่มีตอนกรอก
-         selectValuebalancestr = str(selectValuebalance)#ข้อมูลจากจำนวนเหรียญที่มีตอนกรอก แปลงเป็น string
+         selectValuebalance = request.form.get('balance') 
+         selectValuebalancestr = str(selectValuebalance)
         
         
-        #  return render_template('home.html', data=data_json, coinsymbol=selectValuecoinstr, valuebalance=selectValuebalancestr)
+        
          for o in range(len(data_list2)):
             datasymbol3 = data_list2[o]
             datasymbol4p = data_list3[o]
