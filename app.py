@@ -37,15 +37,14 @@ def home():
 
     listCookie = []
     if request.method == "POST": 
-        
          selectValuecoin = request.form.get('coin') 
          selectValuecoinstr = str(selectValuecoin) 
-
+         print(selectValuecoinstr)
      
 
          selectValuebalance = request.form.get('balance') 
          selectValuebalancestr = str(selectValuebalance)
-        
+         print(selectValuebalancestr)
         
         
          for o in range(len(data_list2)):
@@ -58,23 +57,23 @@ def home():
             else:
                 pass
 
+         listCookie = json.loads(request.cookies.get('symbol'))
+
          data_jsonsymbol = double(selectValuebalancestr) * double(price)
-         listCookie.append(selectValuecoinstr)
-         listCookie.append(selectValuebalancestr)
-         listCookie.append(data_jsonsymbol)
-         listCookie = str(listCookie)
+         listCookie.append([selectValuecoinstr, selectValuebalancestr, data_jsonsymbol])
+         #listCookie = str(listCookie)
                 
     else:
         selectValuecoinstr = " "
         selectValuebalancestr = "0"
     print(listCookie)
     resp = make_response(render_template('home.html', data=data_list2, coinsymbol=selectValuecoinstr, valuebalance=selectValuebalancestr, data_jsonsymbol=data_jsonsymbol))
-    resp.set_cookie('symbol','test') 
+    resp.set_cookie('symbol',json.dumps(listCookie)) 
     return resp
       
     
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5001))
     app.run(host='0.0.0.0', port=port, debug=True)
    
 
