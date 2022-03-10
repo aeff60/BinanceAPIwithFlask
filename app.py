@@ -36,6 +36,7 @@ def home():
         # dataprice2 = data_list[j]['price']
 
     listCookie = []
+    totalUsdt = 0.0
     if request.method == "POST": 
          selectValuecoin = request.form.get('coin') 
          selectValuecoinstr = str(selectValuecoin) 
@@ -58,6 +59,9 @@ def home():
                 pass
 
          listCookie = json.loads(request.cookies.get('symbol'))
+         for item in listCookie:
+             totalUsdt = totalUsdt + item[2]
+
 
          data_jsonsymbol = double(selectValuebalancestr) * double(price)
          listCookie.append([selectValuecoinstr, selectValuebalancestr, data_jsonsymbol])
@@ -67,7 +71,7 @@ def home():
         selectValuecoinstr = " "
         selectValuebalancestr = "0"
     print(listCookie)
-    resp = make_response(render_template('home.html', mycoin=listCookie, data=data_list2, coinsymbol=selectValuecoinstr, valuebalance=selectValuebalancestr, data_jsonsymbol=data_jsonsymbol))
+    resp = make_response(render_template('home.html',total = totalUsdt, mycoin=listCookie, data=data_list2, coinsymbol=selectValuecoinstr, valuebalance=selectValuebalancestr, data_jsonsymbol=data_jsonsymbol))
     resp.set_cookie('symbol',json.dumps(listCookie)) 
     return resp
       
