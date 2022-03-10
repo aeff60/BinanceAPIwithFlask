@@ -69,7 +69,7 @@ def home():
         selectValuebalancestr = "0"
     print(listCookie)
     resp = make_response(render_template('home.html', data=data_list2, coinsymbol=selectValuecoinstr, valuebalance=selectValuebalancestr, data_jsonsymbol=data_jsonsymbol))
-    resp.set_cookie('symbol',listCookie) 
+    resp.set_cookie('symbol','test') 
     return resp
       
     
